@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Cuscatlán - Iniciar Sesión</title>
+    <!-- Referencia al archivo CSS con mayúscula -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hotel Cuscatlán</h1>
+    </header>
+
+    <!-- La sección hero-login ahora cargará la imagen de fondo tropical -->
+    <div class="hero-login animar-entrada">
+        <div class="tarjeta-login">
+
+            <h2 style="text-align: center; color: var(--primario-oscuro); margin-bottom: 5px;">Acceso Clientes</h2>
+            <legend>Por favor, introduce tus credenciales de usuario</legend>
+
+            <!-- El formulario redirigirá a Inicio.html con mayúscula -->
+            <form action="Inicio.html">
+                <div class="campo">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="tu contraseña" required>
+                </div>
+
+                <button type="submit" class="boton-enviar">Ingresar al Sitio</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hotel Cuscatlán. Tu hogar lejos de casa.</p>
+    </footer>
+
+</body>
+</html>

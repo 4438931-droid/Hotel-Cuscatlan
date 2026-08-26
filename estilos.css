@@ -1,0 +1,315 @@
+* {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Quita espacios internos por defecto */
+    box-shadow: none; /* Quita sombras por defecto */
+    box-sizing: border-box; /* Incluye bordes y rellenos en el ancho/alto */
+}
+
+/*--- VARIABLES GLOBALES DE COLOR (Paleta Resort Tropical) ---*/
+:root {
+    /* Colores Principales */
+    --primario-oscuro: #0f4c5c; /* Azul Océano Profundo */
+    --primario-brillante: #00b4d8; /* Turquesa Caribeño */
+    --acento-dorado: #fb8500; /* Sol Coral Cálido (Usado en Cerrar Sesión) */
+    
+    /* Colores de Fondo y Texto */
+    --fondo-suave: #f4f9f9; /* Blanco Brisa Marina */
+    --blanco: #ffffff;
+    --gris-fondo: #eef4f8; /* Fondo general de la página */
+    --texto-oscuro: #2b2d42; /* Gris muy oscuro para lectura */
+
+    /* Variables de Efectos Visuales (Glow y Sombras) */
+    --glow-turquesa: rgba(0, 180, 216, 0.8);
+    --sombra: rgba(15, 76, 92, 0.15);
+    --sombra-fuente: rgba(15, 76, 92, 0.3);
+}
+
+/*--- ESTILOS DE CUERPO Y LAYOUT (Opción 2: Imagen Tropical con Capa Suave) ---*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Capa blanca semi-transparente + Imagen de fondo */
+    background: linear-gradient(rgba(244, 249, 249, 0.85), rgba(244, 249, 249, 0.85)),
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantiene la imagen fija al desplazarse */
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+.contenedor-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/*--- ENCABEZADO (Header) VIBRANTE ---*/
+header {
+    /* Fondo con degradado de azul océano profundo a marino suave */
+    background: linear-gradient(135deg, #0a3d4d, #145a6f);
+    color: var(--blanco);
+    padding: 30px 0; /* Espaciado más generoso */
+    text-align: center;
+    position: relative; /* Necesario para el borde inferior brillante */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para profundidad */
+    z-index: 10;
+}
+
+/* Título H1 con brillo sutil (Glow Effect) */
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 0 0 10px var(--glow-turquesa), 0 0 20px var(--glow-turquesa);
+    margin-bottom: 15px;
+}
+
+/* Borde inferior turquesa brillante (Pseudo-elemento) */
+header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primario-brillante);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 15px var(--primario-brillante), 0 0 5px var(--primario-brillante); /* Brillo intenso */
+}
+
+/*--- NAVEGACIÓN (Nav) ---*/
+nav a {
+    color: var(--fondo-suave); /* Blanco roto/crema muy claro base */
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Hover de enlaces normales: Brillo turquesa */
+nav a:hover:not(.nav-cerrar) {
+    color: var(--primario-brillante);
+    text-shadow: 0 0 10px var(--primario-brillante), 0 0 20px var(--primario-brillante);
+}
+
+/* Botón llamativo 'Cerrar Sesión' (Color Coral) */
+.nav-cerrar {
+    background-color: var(--acento-dorado);
+    color: var(--blanco);
+    padding: 10px 20px; /* Formato botón */
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-shadow: none; /* Sin brillo en el texto del botón */
+    margin-left: 10px;
+}
+
+/* Hover del botón Cerrar Sesión */
+.nav-cerrar:hover {
+    background-color: #ff9d4d; /* Coral más claro en hover */
+    transform: translateY(-2px); /* Pequeña elevación */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/*--- CONTENIDO PRINCIPAL (Main & Sections) ---*/
+main {
+    flex: 3;
+    min-width: 300px;
+}
+
+section {
+    background-color: var(--blanco);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--sombra);
+    margin-bottom: 20px;
+}
+
+/* Títulos dentro de secciones */
+section h2 {
+    color: var(--primario-oscuro);
+    margin-bottom: 15px;
+}
+
+/* Artículos (Noticias/Opiniones) */
+article {
+    background-color: var(--fondo-suave);
+    padding: 15px;
+    border-left: 4px solid var(--primario-oscuro);
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+article h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 5px;
+}
+
+/*--- BARRA LATERAL (Aside) ---*/
+aside {
+    flex: 1;
+    min-width: 280px; /* Ajustado de 350px a 280px para mejor adaptabilidad */
+    background-color: var(--blanco);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--sombra);
+    border-top: 5px solid var(--primario-brillante); /* Línea superior turquesa */
+    height: fit-content;
+}
+
+aside h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 15px;
+}
+
+/*--- ELEMENTOS VISUALES (Banners y Tarjetas) ---*/
+.banner-inicio {
+    width: 100%;
+    height: 200px;
+    background-image: url(https://okdiario.com/img/2024/12/05/adios-a-reservar-en-los-hoteles-como-siempre-se-confirma-el-cambio-que-llega.jpg); /* Imagen Unsplash */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de Servicios (Página servicios.html) */
+.contenedor-servicios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta Visual de Servicio */
+.tarjeta-visual {
+   flex: 1;
+   min-width: 250px;
+   max-width: 300px;
+   background-color: var(--blanco);
+   border-radius: 8px;
+   box-shadow: 0 4px 8px var(--sombra);
+   overflow: hidden; /* Oculta desbordes de imagen */
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover de tarjeta: Elevación y sombra más intensa */
+.tarjeta-visual:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--sombra-fuente);
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ajusta imagen sin deformar */
+}
+
+.tarjeta-textos {
+    padding: 15px;
+}
+
+.tarjeta-textos h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 5px;
+}
+
+/*--- FORMULARIOS (Login y Reservas) ---*/
+.campo {
+    margin-bottom: 15px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primario-oscuro);
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botones de formulario (Boton Enviar) */
+.boton-enviar {
+    background-color: var(--primario-oscuro);
+    color: var(--blanco);
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover de botones: cambia a Turquesa */
+.boton-enviar:hover {
+    background-color: var(--primario-brillante);
+}
+
+/* Estilos específicos para login.html */
+.hero-login {
+    /* Imagen de fondo tropical Unsplash para login */
+    background-image: url(https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?cs=srgb&dl=pexels-thorsten-technoman-109353-338504.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-login {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanco semi-transparente */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--sombra-fuente);
+    max-width: 400px;
+    width: 100%; 
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+legend {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/*--- PIE DE PÁGINA (Footer) ---*/
+footer {
+    text-align: center;
+    padding: 25px 0;
+    background-color: var(--primario-oscuro);
+    color: var(--blanco); /* Blanco puro para contraste legible */
+}
+
+/*--- ANIMACIONES CSS (Ajustadas para reinicio suave) ---*/
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Comienza desplazado abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en posición original */
+    }
+}
+
+.animar-entrada {
+    animation: fadeInUp 0.5s ease-out forwards;
+}

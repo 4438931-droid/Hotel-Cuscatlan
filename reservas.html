@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Cuscatlán - Reservaciones</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <h1>Hotel Cuscatlán</h1>
+        <nav>
+            <a href="inicio.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="reservas.html">Reservaciones</a>
+            <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <div class="contenedor-layout animar-entrada">
+        <main>
+            <section>
+                <h2>Reserva tu Estancia</h2>
+                <p style="margin-bottom: 20px;">Completa el siguiente formulario para solicitar la disponibilidad de tu habitación.</p>
+
+                <form action="#" method="POST" onsubmit="mostrarModal(event)">
+                    <div class="campo">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Carlos Mendoza" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="checkin">Fecha de Entrada (Check-in)</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="checkout">Fecha de Salida (Check-out)</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="habitacion">Tipo de Habitación</label>
+                        <input type="text" id="habitacion" name="habitacion" placeholder="Ej. Suite Estándar, Suite Lujo, Familiar">
+                    </div>
+
+                    <div class="campo">
+                        <label for="huespedes">Número de Huéspedes</label>
+                        <input type="number" id="huespedes" name="huespedes" min="1" max="10" value="2">
+                    </div>
+
+                    <button type="submit" class="boton-enviar">Confirmar Reservación</button>
+                </form>
+            </section>
+        </main>
+
+        <aside>
+            <h3>Políticas de Reserva</h3>
+
+            <p style="font-weight: bold; margin-top: 10px;">Horarios de Check-in / Out</p>
+            <p>Entrada: A partir de las 3:00 PM</p>
+            <p>Salida: Hasta las 11:00 AM</p>
+
+            <p style="font-weight: bold; margin-top: 15px;">Cancelaciones</p>
+            <p>Cancelación gratuita hasta 48 horas antes del día de tu llegada.</p>
+
+            <p style="font-weight: bold; margin-top: 15px;">Métodos de Pago</p>
+            <p>Aceptamos tarjetas de crédito, débito y transferencia bancaria.</p>
+
+            <p style="font-weight: bold; margin-top: 15px;">¿Dudas sobre tu reserva?</p>
+            <p>Llámanos a Recepción: Ext. 0</p>
+            <p>reservas@hotelcuscatlan.com</p>
+        </aside>
+    </div>
+
+    <!-- Pantalla emergente (Modal) -->
+    <div id="modal-exito" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: #ffffff; padding: 30px; border-radius: 12px; text-align: center; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <h3 style="color: #fb8500; margin-top: 0;">¡Reservación Confirmada!</h3>
+            <p style="color: #333333; margin: 15px 0;">Gracias por reservar con Hotel Cuscatlán. Te hemos enviado un correo con los detalles de tu estancia.</p>
+            <button onclick="cerrarModal()" style="background-color: #fb8500; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">Aceptar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hotel Cuscatlán. Tu hogar lejos de casa.</p>
+    </footer>
+
+    <script>
+        function mostrarModal(event) {
+            event.preventDefault();
+            document.getElementById('modal-exito').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-exito').style.display = 'none';
+            document.querySelector('form').reset();
+        }
+    </script>
+</body>
+</html>
